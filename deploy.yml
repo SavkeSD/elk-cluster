@@ -1,0 +1,29 @@
+---
+
+- hosts: elasticsearch
+  become: yes
+  vars_files:
+    - testvars.yml
+  roles:
+    - elasticsearch
+
+- hosts: kibana
+  become: yes
+  vars_files:
+    - testvars.yml
+  roles:
+    - kibana
+
+- hosts: logstash
+  become: yes
+  vars_files:
+    - testvars.yml
+  roles:
+    - logstash
+
+- hosts: elasticsearch
+  become: yes
+  vars_files:
+    - testvars.yml
+  roles:
+    - beats

@@ -1,0 +1,34 @@
+[all:vars]
+ansible_port=22
+ansible_user=
+ansible_become_user=root
+ansible_ssh_pass=''
+ansible_become_pass=''
+
+
+[elasticsearch_master]
+elk-host1 ansible_host=192.168.172.xx
+elk-host2 ansible_host=192.168.172.xx
+elk-host3 ansible_host=192.168.172.xx
+
+[elasticsearch_data]
+elk-host4 ansible_host=192.168.172.xx
+elk-host5 ansible_host=192.168.172.xx
+elk-host6 ansible_host=192.168.172.xx
+
+
+[elasticsearch:children]
+elasticsearch_master
+elasticsearch_data
+
+
+[kibana]
+elk-host2 ansible_host=192.168.172.xx
+elk-host5 ansible_host=192.168.172.xx
+
+[logstash]
+elk-host3 ansible_host=192.168.172.xx
+elk-host6 ansible_host=192.168.172.xx
+
+[elasticsearch_ca]
+elk-host1 ansible_host=192.168.172.xx
